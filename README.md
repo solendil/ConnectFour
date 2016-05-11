@@ -8,5 +8,6 @@ A simple Connect Four implementation in node.js
 * The client side is some very simple [jQuery](https://jquery.com/).
 * [Grunt](http://gruntjs.com/) is used to pass the code through [JSHint](http://jshint.com/) and [JS Beautifier](https://github.com/beautify-web/js-beautify).
 * The AI uses a simple [negamax](https://en.wikipedia.org/wiki/Negamax) without prunning or memoization; the main `Board` object is not optimized (arrays of objects), so the AI is not very strong, yet.
+* A very important shortcoming : node.js cannot deal with [long running processes](https://stadolf.wordpress.com/2012/05/10/dealing-concurrently-with-long-running-blocking-tasks-in-node-js/) without stalling its I/O. Workarounds for this problem are hard and convoluted, and are not implemented here. As a result, when the AI thinks, the server stops responding. 
 * [Sessions](https://github.com/expressjs/session) allow for many simultaneous games.
 * Only playing vs. AI is supported for the moment (no human vs. human).
