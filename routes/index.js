@@ -8,7 +8,7 @@ var router = express.Router();
  * Simple utility function that takes the game state in the session and sends it as
  * a JSON object.
  */
-var sendState = function(req, res) {
+var sendState = function (req, res) {
   let sess = req.session;
   let board = Board.fromData(sess.board);
   res.setHeader('Content-Type', 'application/json');
@@ -22,15 +22,13 @@ var sendState = function(req, res) {
     obj.board.push(cell.color);
   }
   res.send(JSON.stringify(obj));
-}
-
+};
 
 // root page, choice of the game type
 router.get('/', function (req, res, next) {
   let sess = req.session;
   res.render('index', {});
 });
-
 
 // initializes a new game
 router.get('/play/:vs/:color', function (req, res, next) {
@@ -46,12 +44,10 @@ router.get('/play/:vs/:color', function (req, res, next) {
   res.render('play', {});
 });
 
-
 // returns the game state that is stored in session as a JSON
 router.get('/state', function (req, res, next) {
   sendState(req, res);
 });
-
 
 // receives a hit from the player, applies it to game state in session, and plays
 // IA if applicable.

@@ -9,13 +9,13 @@ module.exports = function (grunt) {
         reporter: require('jshint-stylish')
       },
       all: {
-        src: ['lib/**/*.js', 'routes/**/*.js', 'Gruntfile.js'],
+        src: ['lib/**/*.js', 'public/**/client.js', 'routes/**/*.js', 'Gruntfile.js'],
       }
     },
 
     jsbeautifier: {
       'all': {
-        src: ['lib/**/*.js', 'routes/**/*.js', 'Gruntfile.js'],
+        src: ['lib/**/*.js', 'public/**/client.js', 'routes/**/*.js', 'Gruntfile.js'],
         options: {
           config: '.jsbeautifyrc'
         }
