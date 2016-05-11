@@ -32,7 +32,7 @@ router.get('/', function (req, res, next) {
 });
 
 
-// initializes a game
+// initializes a new game
 router.get('/play/:vs/:color', function (req, res, next) {
   let sess = req.session;
   sess.vs = req.params.vs;
@@ -46,7 +46,8 @@ router.get('/play/:vs/:color', function (req, res, next) {
   res.render('play', {});
 });
 
-// returns the game state that is stores in session as a JSON
+
+// returns the game state that is stored in session as a JSON
 router.get('/state', function (req, res, next) {
   sendState(req, res);
 });
